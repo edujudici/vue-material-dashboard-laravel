@@ -41,7 +41,8 @@ class UserSchema extends Schema
                 ->readOnly(),
             DateTime::make('updated_at')
                 ->serializeUsing(static fn(?Carbon $value) => $value?->format('Y-m-d H:i:s'))
-                ->readOnly(),
+                ->readOnly()
+                ->sortable(),
         ];
     }
 
@@ -66,5 +67,4 @@ class UserSchema extends Schema
     {
         return PagePagination::make();
     }
-
 }
